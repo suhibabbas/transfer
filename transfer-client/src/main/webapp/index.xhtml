@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title> Student Task</title>
+</h:head>
+<h:body>
+
+    <h:form id="form">
+        <p:autoUpdate/>
+        <p:growl/>
+        <p:panelGrid columns="4" style="margin:auto" styleClass="shaddow">
+            <f:facet name="header">transfer Form</f:facet>
+
+            <h:outputLabel value="id" for="fromAcc"/>
+            <h:inputText type="number" value="#{controller.model.fromAcc}" id="fromAcc"
+                         placeholder="studentId" required="true"/>
+
+            <h:outputLabel value="Student Name" for="toAcc"/>
+            <h:inputText type="number" value="#{controller.model.toAcc}" id="toAcc"
+                         placeholder="student Name" required="true"/>
+
+            <h:outputLabel value="Student Name" for="amount"/>
+            <h:inputText type="number" value="#{controller.model.amount}" id="amount"
+                         placeholder="student Name" required="true"/>
+
+            <f:facet name="footer">
+                <div align="center">
+                    <h:commandButton value="Add" action="#{controller.add}"
+                                     rendered="#{controller.allowAdd}" process="@form"/>
+                </div>
+            </f:facet>
+        </p:panelGrid>
+    </h:form>
+</h:body>
+</html>
