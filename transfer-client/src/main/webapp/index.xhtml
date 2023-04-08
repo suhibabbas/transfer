@@ -65,6 +65,14 @@
                 <h:outputText value="#{model.amount==null?'-':model.amount}"/>
             </p:column>
         </p:dataTable>
+
+        <div class="card" >
+            <p:chart type="line" model="#{controller.lineModel}"
+                     style="height:300px; width: auto" />
+        </div>
     </h:form>
+
+
+
 </h:body>
 </html>
