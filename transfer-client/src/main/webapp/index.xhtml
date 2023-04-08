@@ -36,5 +36,35 @@
             </f:facet>
         </p:panelGrid>
     </h:form>
+
+    <hr/>
+
+    <h:form>
+        <p:dataTable value="#{controller.list}" var="model"
+                     rowKey="#{model.id}" paginator="true" paginatorAlwaysVisible="false"
+                     paginatorPosition="bottom" selectionMode="single"
+                     filteredValue="#{controller.filterLest}"
+                     selection="#{controller.model}" emptyMessage="" rowIndexVar="row"
+                     styleClass="shadow">
+            <p:ajax event="rowSelect"/>
+            <f:facet name="header">Transfer data</f:facet>
+
+            <p:column headerText="Id">#{row+1}</p:column>
+            <p:column headerText="Form" sortBy="#{model.fromAcc}"
+                      filterMatchMode="contains" >
+                <h:outputText value="#{model.fromAcc==null?'-':model.fromAcc}"/>
+            </p:column>
+
+            <p:column headerText="To" sortBy="#{model.toAcc}"
+                      filterMatchMode="contains" >
+                <h:outputText value="#{model.toAcc==null?'-':model.toAcc}"/>
+            </p:column>
+
+            <p:column headerText="Amount" sortBy="#{model.amount}"
+                      filterMatchMode="contains" >
+                <h:outputText value="#{model.amount==null?'-':model.amount}"/>
+            </p:column>
+        </p:dataTable>
+    </h:form>
 </h:body>
 </html>
